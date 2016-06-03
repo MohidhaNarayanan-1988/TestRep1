@@ -134,11 +134,6 @@ global class EDI850IB implements Database.Batchable<sObject>,Database.Stateful,K
      * @description Validate Class created for validating the inbound EDI order and EDI order lines by Implementing the EDIService.EDIStep.
      */
    global class Validate implements EDI.EDIService.EDIStep {
-
-    List<EDI__Order_Line__c> ediOrderLineList = new List<EDI__Order_Line__c>();
-    Map<String, EDI__Trading_Partner_Entity__c> mp_TpEntityShipTo = new Map<String, EDI__Trading_Partner_Entity__c>();
-    List<String> upcCodeList = new List<String>();
-    List<Id> taskIdList = new List<Id>();
     /**
    * @description Accepts list of EDI orders as parameter and executes by performing validations on EDI order and EDI order lines. It updates List of exceptions. Also fetches valid EDI orders , which passes all the validations.
    *
