@@ -1,13 +1,3 @@
-/************************************************************************************************************************************
-  Class           :  EDI850IB
-  Author          :  HiBiZ Solutions
-  Date Created    :  02/19/2016
-  Purpose          :  Class used to validate EDI order and EDI order lines. It extract sales order and sales order lines
-  Input Object    :  EDI order and EDI order lines
-  Output Object    :  Sales order and sales order lines
-  Dependent Classes :  KNDY4.ExceptionServiceAPI , EDIUtility_Static , EDI.EDIService , EDI.EDIService.Response and EdiExceptionUtility
-  Custom Table      :  UPC PRODUCT MAPPING
-************************************************************************************************************************************/
 global class EDI850IB implements Database.Batchable<sObject>,Database.Stateful,KNDY4.Process.Runnable {
   
   global Set<Id> orderIds;  
