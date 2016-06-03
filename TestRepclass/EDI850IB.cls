@@ -1,13 +1,3 @@
-/************************************************************************************************************************************
-  Class           :  EDI850IB
-  Author          :  HiBiZ Solutions
-  Date Created    :  02/19/2016
-  Purpose          :  Class used to validate EDI order and EDI order lines. It extract sales order and sales order lines
-  Input Object    :  EDI order and EDI order lines
-  Output Object    :  Sales order and sales order lines
-  Dependent Classes :  KNDY4.ExceptionServiceAPI , EDIUtility_Static , EDI.EDIService , EDI.EDIService.Response and EdiExceptionUtility
-  Custom Table      :  UPC PRODUCT MAPPING
-************************************************************************************************************************************/
 global class EDI850IB implements Database.Batchable<sObject>,Database.Stateful,KNDY4.Process.Runnable {
   
   global Set<Id> orderIds;  
@@ -144,11 +134,6 @@ global class EDI850IB implements Database.Batchable<sObject>,Database.Stateful,K
      * @description Validate Class created for validating the inbound EDI order and EDI order lines by Implementing the EDIService.EDIStep.
      */
    global class Validate implements EDI.EDIService.EDIStep {
-
-    List<EDI__Order_Line__c> ediOrderLineList = new List<EDI__Order_Line__c>();
-    Map<String, EDI__Trading_Partner_Entity__c> mp_TpEntityShipTo = new Map<String, EDI__Trading_Partner_Entity__c>();
-    List<String> upcCodeList = new List<String>();
-    List<Id> taskIdList = new List<Id>();
     /**
    * @description Accepts list of EDI orders as parameter and executes by performing validations on EDI order and EDI order lines. It updates List of exceptions. Also fetches valid EDI orders , which passes all the validations.
    *
